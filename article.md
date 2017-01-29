@@ -11,6 +11,17 @@ https://www.contentful.com/
 
 Now less talking and more doing! Let's see how we can implement this very simple tool.
 
+# Summary
+
+  - [My FAQ: Introduction](#my-faq-introduction)
+  - Setting up React
+  - Our FAQ React app
+    - Setting up basic components
+    - Setting up several Question/Answer blocks
+  - Using Contentful
+    - Setting up Contentful
+    - Injecting Contentful inside React
+  - Conclusion
 
 ## My FAQ: Introduction
 
