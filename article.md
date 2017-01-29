@@ -294,7 +294,7 @@ export default Block;
 ```
 If you insert `{this.props.content}` between the `div` brackets, no HTML code will
 be interprated as so.
-Since we are supposed to display a list of answer (and thus <li> tags),
+Since we are supposed to display a list of answer (and thus *li* tags),
 you have two choices:
   - either you split `props.content` into more accurate information such as
   `props.content.question` and `props.content.answers` which do not contain HTML and
