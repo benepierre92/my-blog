@@ -55,7 +55,7 @@ You will end up with an architecture like this:
 This is the default architecture. If you run ` npm start ` and you input `http://localhost:3000`
 you should see a beautiful default page.
 
-IMAGE
+![alt text](./article-attachments/react-default-page.png "React Default Page")
 
 Now let's update the code to make it look like a FAQ!
 
@@ -262,7 +262,7 @@ content.css
 
 Here is the result you should have on your browser:
 
-IMAGE
+![alt text](./article-attachments/react-faq-first-page.png "React FAQ First Page")
 
 It seems pretty cool but we only have one block here
 
@@ -377,7 +377,7 @@ When you refresh the page in your browser, you should not see any difference.
 However, it is now very easy to insert a new block by simply adding a new
 element in the blocks table.
 
-IMAGE
+![alt text](./article-attachments/react-faq-dynamic-page.png "React FAQ Dynamic Page")
 
 
 ## Using Contentful
@@ -402,14 +402,14 @@ On the upper left part of the website, click on `My Spaces`, and then `Add a new
 Choose `my-faq` as a space name for example, and whatever language you want. Select
 create an empty space and then click on `Create Space`.
 
-IMAGE
+![alt text](./article-attachments/contentful-add-space.png "Contentful Add Space")
 
 Once you have your space, you need now to create a **Content Type**.
 Click on `Content model` and then `Add content type`. Choose a name, `FAQBlock` for
 example, leave the `API identifier` empty and enters the description you wish.  
 Boom! You have your new content type! Now we need to give it fields!
 
-IMAGE
+![alt text](./article-attachments/contentful-create-new-space.png "Contentful Create New Space")
 
 Select your newly created content type and click on `Add field`. We are going to add
 two fields: the **title** and the **content**. For each of them, select `Text` input,
@@ -448,7 +448,7 @@ In order to use contentful, we are going to need 2 keys.
   you want and link it to your space ID. Your Content Delivery Api will be generated
   automatically.
 
-IMAGE
+![alt text](./article-attachments/contentful-generate-api.png "Contentful Generate API")
 
 Once this is done, all we need to do is replacing our raw data in App.js by the response
 sent by Contentful thanks to the `contentfulClient.getEntries()` function.
