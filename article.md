@@ -14,14 +14,14 @@ Now less talking and more doing! Let's see how we can implement this very simple
 # Summary
 
   - [My FAQ: Introduction](#my-faq-introduction)
-  - Setting up React
-  - Our FAQ React app
-    - Setting up basic components
-    - Setting up several Question/Answer blocks
-  - Using Contentful
-    - Setting up Contentful
-    - Injecting Contentful inside React
-  - Conclusion
+  - [Setting up React](#setting-up-react)
+  - [Our FAQ React app](#our-faq-react-app)
+    - [Setting up basic components](#setting-up-basic-components)
+    - [Setting up several Question/Answer blocks](#setting-up-several-questionanswer-blocks)
+  - [Using Contentful](#using-contentful)
+    - [Setting up Contentful](#setting-up-contentful)
+    - [Injecting Contentful inside React](#injecting-contentful-inside-react)
+  - [Conclusion](#conclusion)
 
 ## My FAQ: Introduction
 
