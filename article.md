@@ -62,6 +62,8 @@ Now let's update the code to make it look like a FAQ!
 
 ## Our FAQ React app
 
+### Setting up basic components
+
 First of all, let's update the architecture. We would rather want something like this:
 - **my-faq**
   - **node_modules**
@@ -124,5 +126,249 @@ and the Footer
   export default Footer;
 ```
 
-Nothing very complicated here. The style sheets will be integrated in the App component.
+Nothing very complicated here. The style sheets will be integrated in the index.js file.
 You can stylize your components the way you want.
+
+Now, let's implement a Question/Answer block.
+```javascript
+  import React, { Component } from 'react';
+
+  class Block extends Component {
+    render() {
+      return (
+        <div className="content-block">
+          <div className="content-block-title"> I cannot connect to my account</div>
+          <div className="content-block-detail">
+            Have you
+            <ul>
+              <li>made sure your internet connexion was enabled</li>
+              <li>checked that the email address you used was correct</li>
+              <li>checked that the account you used was not expired</li>
+            </ul>
+          </div>
+        </div>
+      );
+    }
+  }
+
+  export default Block;
+```
+
+and import it in the ContentPage component:
+```javascript
+  import React, { Component } from 'react';
+  import Block from './Block';
+
+  class ContentPage extends Component {
+    render() {
+      return (
+        <div className="content">
+          <Block />
+        </div>
+      );
+    }
+  }
+
+  export default ContentPage;
+
+```
+
+Finally, we need to gather the components altogether in the App component.
+We will also import style sheets there
+```javascript
+  import React, { Component } from 'react';
+  import Header from './Header';
+  import ContentPage from './ContentPage';
+  import Footer from './Footer';
+
+  class App extends Component {
+    render() {
+      return (
+        <div className="app">
+          <Header />
+          <ContentPage />
+          <Footer />
+        </div>
+      );
+    }
+  }
+
+  export default App;
+```
+
+Let's not forget the include the style sheets in the index.js file.
+For those of you interested, I separated the style in 2 files:
+
+main.css
+```css
+  html, body, #root {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .app {
+    height: calc(100% - 215px);
+  }
+
+  .header {
+    background-color: rgb(100,100,255);
+    border-bottom: 1px solid rgb(20,20,255);
+    height: 50px;
+    width: calc(100% - 40px);
+    color: white;
+    font-size: 30px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .footer {
+    background-color: rgb(100,100,255);
+    border-top: 1px solid rgb(20,20,255);
+    height: 20px;
+    width: calc(100% - 20px);
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+  }
+```
+
+content.css
+```css
+  .content {
+    padding: 20px;
+    margin-bottom: 20px;
+    min-height: 100%;
+  }
+
+  .content-block {
+    border: 1px solid black;
+    margin-bottom: 20px;
+  }
+
+  .content-block-title {
+    background-color: rgb(150, 200, 150);
+    padding: 10px;
+    font-size: 20px;
+    border-bottom: 1px solid black;
+  }
+
+  .content-block-detail {
+    padding: 10px;
+  }
+```
+
+Here is the result you should have on your browser:
+
+IMAGE
+
+It seems pretty cool but we only have one block here
+
+
+### Setting up several Question/Answer blocks
+
+It is now time to have several Questions/Answers block and to give some
+content to our app.  
+We will start by editing the Block component to display dynamic content instead
+of raw information. We will assume that this content is passed through props.
+
+```javascript
+import React, { Component } from 'react';
+
+class Block extends Component {
+  render() {
+    return (
+      <div className="content-block">
+        <div className="content-block-title">{this.props.title}</div>
+        <div className="content-block-detail">
+          {this.props.content}
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Block;
+```
+If you insert `{this.props.content}` between the `div` brackets, no HTML will be displayed.
+Since we are supposed to display a list of answer, you have to choices:
+  - either you split `props.content` into more accurate information such as
+  `props.content.question` and `props.content.answers` which do not contain HTML and
+  you adapt the code of the Block component
+  - either you allow HTML inside the div. Then the syntax is:
+  `<div className="content-block-detail" dangerouslySetInnerHTML={{ __html: this.props.content }} />`
+
+We should now pass the right props to the Block component.
+Instead of calling one Block at a time, we can call as many Blocks as needed for
+each question/answer we have.
+
+```javascript
+import React, { Component } from 'react';
+import Block from './Block';
+
+class ContentPage extends Component {
+  render() {
+    return (
+      <div className="content">
+      {
+        this.props.blocks.map((block, i) => (
+          <Block title={block.title} content={block.content} key={i} />
+        ))
+      }
+      </div>
+    );
+  }
+}
+
+export default ContentPage;
+```
+In this case, the information is stored in props.blocks shaped like a table of
+```
+{
+  'title': '...',
+  'content': '...'
+}
+```
+This information will be defined in the main component, App.js
+```javascript
+import React, { Component } from 'react';
+import Header from './Header';
+import ContentPage from './ContentPage';
+import Footer from './Footer';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { blocks: [
+      {
+          'title':  'I cannot connect to my account',
+          'content': `Have you
+            <ul>
+              <li>made sure your internet connexion was enabled</li>
+              <li>checked that the email address you used was correct</li>
+              <li>checked that the account you used was not expired</li>
+            </ul>`,
+      }
+    ] };
+  }
+
+  render() {
+    return (
+      <div className="app">
+        <Header />
+        <ContentPage blocks={this.state.blocks} />
+        <Footer />
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+When you refresh the page in your browser, you should not see any difference.
+However, it is now very simple to insert a new block by simply adding a new
+element in the blocks table.
