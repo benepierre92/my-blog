@@ -400,7 +400,7 @@ Fill in all the information and then log in. There you go, nothing more complica
 
 On the upper left part of the website, click on `My Spaces`, and then `Add a new space`.
 Choose `my-faq` as a space name for example, and whatever language you want. Select
-create an empty space and then click on `Create Space`.
+`create an empty space` and then click on `Create Space`.
 
 ![alt text](./article-attachments/contentful-add-space.png "Contentful Add Space")
 
@@ -409,7 +409,7 @@ Click on `Content model` and then `Add content type`. Choose a name, `FAQBlock` 
 example, leave the `API identifier` empty and enters the description you wish.  
 Boom! You have your new content type! Now we need to give it fields!
 
-![alt text](./article-attachments/contentful-create-new-space.png "Contentful Create New Space")
+![alt text](./article-attachments/contentful-create-contenttype.png "Contentful Create New Content Type")
 
 Select your newly created content type and click on `Add field`. We are going to add
 two fields: the **title** and the **content**. For each of them, select `Text` input,
