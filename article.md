@@ -413,7 +413,9 @@ IMAGE
 
 Select your newly created content type and click on `Add field`. We are going to add
 two fields: the **title** and the **content**. For each of them, select `Text` input,
-then select `Short text` for **title** and `Long text` for **content**.  
+then select `Short text` for **title** and `Long text` for **content**
+(If you decided not to inject HTML, you can split your content by checking `Line` and
+adapt your code in React to handle it).  
 Now you are ready to give some content to your app.
 
 Go in the `Content` tab and create as many FAQ blocks as you want by clicking on
@@ -493,3 +495,9 @@ just go throught the Contentful interface. Simple, fast, efficient, and secure :
 ### Going further with translating your pages
 
 ## Conclusion
+
+Contenful is a CMS which is easy to use and to implement in your apps. It can support
+Python, PHP, javascript, but can also be used on Android and IOs applications.  
+What we saw today was a very simple usecase but we can actually do much more, such as
+linking models between each other, or creating Content management keys to update
+Contentful content outside of their platform.
