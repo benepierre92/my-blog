@@ -174,7 +174,6 @@ and import it in the ContentPage component:
 ```
 
 Finally, we need to gather the components altogether in the App component.
-We will also import style sheets there
 ```javascript
   import React, { Component } from 'react';
   import Header from './Header';
@@ -293,13 +292,18 @@ class Block extends Component {
 
 export default Block;
 ```
-If you insert `{this.props.content}` between the `div` brackets, no HTML will be displayed.
-Since we are supposed to display a list of answer, you have to choices:
+If you insert `{this.props.content}` between the `div` brackets, no HTML code will
+be interprated as so.
+Since we are supposed to display a list of answer (and thus <li> tags),
+you have two choices:
   - either you split `props.content` into more accurate information such as
   `props.content.question` and `props.content.answers` which do not contain HTML and
   you adapt the code of the Block component
-  - either you allow HTML inside the div. Then the syntax is:
+  - either you allow HTML tags inside the div. Then the syntax is:
   `<div className="content-block-detail" dangerouslySetInnerHTML={{ __html: this.props.content }} />`
+
+Even if it is not the best option, we will go for the dangerouslySetInnerHTML choice,
+since our application is very basic.
 
 We should now pass the right props to the Block component.
 Instead of calling one Block at a time, we can call as many Blocks as needed for
@@ -370,5 +374,7 @@ export default App;
 ```
 
 When you refresh the page in your browser, you should not see any difference.
-However, it is now very simple to insert a new block by simply adding a new
+However, it is now very easy to insert a new block by simply adding a new
 element in the blocks table.
+
+IMAGE
