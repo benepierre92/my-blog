@@ -5,9 +5,7 @@ class Block extends Component {
     return (
       <div className="content-block">
         <div className="content-block-title">{this.props.title}</div>
-        <div className="content-block-detail">
-          {this.props.content}
-        </div>
+        <div className="content-block-detail" dangerouslySetInnerHTML={{ __html: this.props.content }} />
       </div>
     );
   }
