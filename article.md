@@ -492,12 +492,11 @@ export default App;
 Now, everytime you need to add, remove or edit a page, no need to edit your code,
 just go throught the Contentful interface. Simple, fast, efficient, and secure :)
 
-### Going further with translating your pages
-
 ## Conclusion
 
 Contenful is a CMS which is easy to use and to implement in your apps. It can support
 Python, PHP, javascript, but can also be used on Android and IOs applications.  
 What we saw today was a very simple usecase but we can actually do much more, such as
 linking models between each other, or creating Content management keys to update
-Contentful content outside of their platform.
+Contentful content outside of their platform. If you are ready to pay, you can also
+manage translations!
