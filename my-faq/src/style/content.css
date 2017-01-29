@@ -1,0 +1,21 @@
+.content {
+  padding: 20px;
+  margin-bottom: 20px;
+  min-height: 100%;
+}
+
+.content-block {
+  border: 1px solid black;
+  margin-bottom: 20px;
+}
+
+.content-block-title {
+  background-color: rgb(150, 200, 150);
+  padding: 10px;
+  font-size: 20px;
+  border-bottom: 1px solid black;
+}
+
+.content-block-detail {
+  padding: 10px;
+}

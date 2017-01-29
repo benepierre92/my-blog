@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: rgb(100,100,255);
+  border-bottom: 1px solid rgb(20,20,255);
+  height: 50px;
+  width: calc(100% - 40px);
+  color: white;
+  font-size: 30px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.footer {
+  background-color: rgb(100,100,255);
+  border-top: 1px solid rgb(20,20,255);
+  height: 20px;
+  width: calc(100% - 20px);
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+}
