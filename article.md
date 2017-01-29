@@ -48,7 +48,7 @@ You will end up with an architecture like this:
     - **App.js** *file containing the react component*
     - **App.test.js** *file for testing*
     - **index.css** *style sheet*
-    - **index.js** *jsfile linking the index.html to the react app*
+    - **index.js** *js file linking the index.html to the react app*
     - **logo.svg** *image file*
   - **package.json** *contains informations for npm*
 
@@ -75,7 +75,7 @@ First of all, let's update the architecture. We would rather want something like
     - **style**
       - **App.css** *style sheet*
       - **index.css** *style sheet*
-    - **index.js** *jsfile linking the index.html to the react app*
+    - **index.js** *js file linking the index.html to the react app*
   - **package.json** *contains informations for npm*
 
 In the *components* folder, we will put every React block.  
@@ -88,27 +88,27 @@ Our app will be as simple as possible and organized that way:
   - Question/Answer 1
   - Question/Answer 2
   - Question/Answer 3
-  ...
+  - ...
 - Footer
 
 We thus need a component for all of them. Let's start with the Header:
-```
+```javascript
   import React, { Component } from 'react';
 
   class Header extends Component {
-  render() {
-    return (
-      <div className="header">
-        Website FAQ
-      </div>
-    );
-  }
+    render() {
+      return (
+        <div className="header">
+          Website FAQ
+        </div>
+      );
+    }
   }
 
   export default Header;
 ```
 and the Footer
-```
+```javascript
   import React, { Component } from 'react';
 
   class Footer extends Component {
